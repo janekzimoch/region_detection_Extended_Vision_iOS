@@ -25,3 +25,13 @@ bazel run -c opt tensorflow/lite/toco:toco -- \
 2) https://www.tensorflow.org/lite/convert/python_api
 * i tried several approaches from here - using tensorflow 1.2. -> tf.contrib.lite.TocoConverter
 * then i decided to update to "TensorFlow nightly release" and convert - but also unsuccesfully
+
+ISSUE RESOLVED: 
+
+To generate .tflite file:
+
+export OUTPUT_DIR='path/to/tflite_graph.pb' \\
+cd tensorflow \\
+make convert 
+
+This will save detect.tflite file in OUTPUT_DIR. Also, this assumes that tflite_graph.pb is stored in OUTPUT_DIR.
